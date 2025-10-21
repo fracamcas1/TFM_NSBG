@@ -1,0 +1,34 @@
+num_rums: 1
+runs: 1
+steps: 600
+time_step: 0.1
+save_directory: ''
+record_pose: true
+record_twist: true
+record_collisions: true
+record_deadlocks: true
+record_efficacy: true
+scenario:
+  type: MaltaCross
+  groups:
+    -
+      type: thymio
+      number: 4
+      radius: 0.4
+      control_period: 0.1
+      speed_tolerance: 0.01
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.6
+        max_speed: 1.66
+      behavior:
+        type: ORCA
+        optimal_speed: 1.2
+        horizon: 5.0
+        safety_margin: 0.1
+        modulations:
+        - type: Graphs
+          enabled: True
+      state_estimation:
+        type: Bounded
+        range: 5.0
